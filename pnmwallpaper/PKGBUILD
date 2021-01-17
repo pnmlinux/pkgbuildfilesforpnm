@@ -1,0 +1,18 @@
+pkgname=pnmwallpaper
+_pkgname=pnmwallpaper
+pkgver=1.0
+pkgrel=1
+pkgdesc='Wallpapers for PNM Linux.'
+url=https://github.com/pnmlinux
+arch=('x86_64')
+license=('GPL2')
+md5sums=('SKIP')
+source=(${pkgname}::"git+https://github.com/pnmlinux/${_pkgname}.git")
+package() {
+   cd "${srcdir}/${pkgname}"
+   install -d "${pkgdir}/usr/share/backgrounds/pnmwallpaper"
+   install -m644 ${srcdir}/${pkgname}/*.jpg "${pkgdir}/usr/share/backgrounds/${_pkgname}"
+   #install -m644 ${srcdir}/${pkgname}/*.png "${pkgdir}/usr/share/backgrounds/${_pkgname}"
+   install -d "${pkgdir}/usr/share/pnm/licenses/${_pkgname}"
+   install -m644 ${srcdir}/${pkgname}/LICENSE "${pkgdir}/usr/share/pnm/licenses/${_pkgname}"
+	}
