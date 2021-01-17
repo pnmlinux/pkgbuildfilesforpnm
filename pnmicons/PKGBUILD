@@ -1,0 +1,25 @@
+# Maintainer: Suleyman Fatih Simsek
+pkgname=pnmicons
+_pkgname=pnmicons
+_destname1="/usr/share/icons/"
+_licensedir="/usr/share/pnm/licenses/"
+pkgver=1.0
+pkgrel=1
+pkgdesc="Icon and cursor for PNM Linux Xfce."
+arch=('any')
+url="https://pnmlinux.github.io"
+license=('GPL3')
+makedepends=('git')
+depends=()
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/pnmlinux/${_pkgname}.git")
+sha256sums=('SKIP')
+package() {
+	install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname1}
+	cp -r  ${srcdir}/${_pkgname}${_destname1}* ${pkgdir}${_destname1}
+}
+
