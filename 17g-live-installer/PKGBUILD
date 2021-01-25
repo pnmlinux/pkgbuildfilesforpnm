@@ -33,7 +33,7 @@ package() {
     cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname2}
     cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname3}
 }
-#1
+#11
 #
 #
 #
