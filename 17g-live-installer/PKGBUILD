@@ -1,0 +1,41 @@
+# Authors: Linux Mint Team
+# Maintainer: Muhammed Efe Cetin <efectn@6tel.net>
+
+pkgname=17g-live-installer
+_destname1="/usr/share/applications/"
+_destname2="/etc/skel/.config/autostart/"
+_destname3="/etc/skel/Desktop/"
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="GUI Installation Tool for GNU/Linux"
+arch=('i686' 'x86_64')
+url="https://github.com/tearch-linux/live-installer"
+license=('GPL3')
+depends=('git' 'python-pillow' 'python-pyparted' 'archiso')
+source=("git+$url.git")
+sha256sums=('SKIP')
+
+package() {
+    cd "$srcdir"/live-installer/
+    make
+    make DESTDIR="$pkgdir/" install
+    #set parmissions
+    chmod 755 -R ${pkgdir}
+    chown root -R ${pkgdir}
+    #Add to startup
+    install -dm755 ${srcdir}${_destname1}
+    mkdir -p ${pkgdir}${_destname1}
+    mkdir -p ${pkgdir}${_destname2}
+    mkdir -p ${pkgdir}${_destname3}
+    chmod +x ${pkgdir}/usr/lib/live-installer/live-installer.sh
+    chmod +x ${srcdir}/live-installer/live-installer.desktop
+    cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname1}
+    cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname2}
+    cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname3}
+}
+#1
+#
+#
+#
+#
+#
