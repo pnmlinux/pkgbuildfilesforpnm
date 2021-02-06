@@ -1,5 +1,5 @@
 # Authors: Linux Mint Team
-# Maintainer: Muhammed Efe Cetin <efectn@6tel.net>
+# Maintainer: Süleyman Fatih Şimşek
 
 pkgname=17g-live-installer
 _destname1="/usr/share/applications/"
@@ -33,9 +33,4 @@ package() {
     cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname2}
     cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname3}
 }
-#111
-#
-#
-#
-#
-#
+
