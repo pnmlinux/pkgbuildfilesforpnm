@@ -18,7 +18,7 @@ sha256sums=('SKIP')
 package() {
     cd "$srcdir"/live-installer/
     make
-    make DESTDIR="$pkgdir/" install
+    make DESTDIR="$pkgdir/" install 	
     #set parmissions
     chmod 755 -R ${pkgdir}
     chown root -R ${pkgdir}
