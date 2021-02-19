@@ -1,0 +1,29 @@
+pkgname="pnmconfig"
+pkgver="1.2"
+pkgrel=1
+license=('GPL3')
+arch=('x86_64')
+release="2"
+maintainer="Suleyman Fatih Simsek"
+description="Wallpapers For PNMOS."
+url="https://github.com/pnmlinux/pnmconfig"
+replaces=("pnm-config-xfce")
+source=("git+$url.git")
+singlesource=false
+sha512sums=('SKIP')
+
+
+_destname1="/etc/skel/"
+_licensedir="/usr/share/licenses/${name}"
+
+_install() {
+   cd "${srcdir}/${pkgname}"
+   install -d "${pkgdir}/etc/skel/.config"
+
+   install -dm755 ${INSTALLDIR}${_licensedir}
+   install -m644  ${name}/LICENSE ${INSTALLDIR}${_licensedir}
+
+   install -dm755 ${INSTALLDIR}${_destname1}
+   cp -r  ${name}${_destname1}* ${INSTALLDIR}${_destname1}
+
+}
