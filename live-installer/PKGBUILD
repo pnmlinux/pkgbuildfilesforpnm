@@ -1,4 +1,4 @@
-# Authors: Linux Mint Team
+# Authors: PNMTEAM
 # Maintainer: Süleyman Fatih Şimşek
 
 pkgname=17g-live-installer
@@ -27,7 +27,7 @@ package() {
     mkdir -p ${pkgdir}${_destname1}
     mkdir -p ${pkgdir}${_destname2}
     mkdir -p ${pkgdir}${_destname3}
-    chmod +x ${pkgdir}/usr/lib/live-installer/live-installer.sh
+    chmod +x ${pkgdir}/usr/bin/live-installer
     chmod +x ${srcdir}/live-installer/live-installer.desktop
     cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname1}
     cp -r  ${srcdir}/live-installer/live-installer.desktop ${pkgdir}${_destname2}
