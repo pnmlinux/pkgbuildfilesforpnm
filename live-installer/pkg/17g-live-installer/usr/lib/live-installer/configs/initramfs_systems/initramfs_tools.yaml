@@ -1,3 +1,0 @@
-name: initramfs_tools
-commands:
-  - update-initramfs -u -t -k all

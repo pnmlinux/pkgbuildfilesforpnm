@@ -1,0 +1,23 @@
+name="pnmgrubtheme"
+version="1.0"
+release="1"
+maintainer="Suleyman Fatih"
+description="PNM GRUB Theme"
+arch="any"
+url="https://github.com/pnmlinux/pnmgrubtheme"
+license="GPL3"
+replaces=("pnm-theme-grub")
+source=("git+$url.git")
+install="fix_path.install"
+singlesource=false
+
+_destname="/usr/share/grub/themes/"
+_licensedir="/usr/share/licenses/"
+
+_install() {
+    install -dm755 ${INSTALLDIR}${_licensedir}${name}
+    install -m644  ${name}/LICENSE ${INSTALLDIR}${_licensedir}${name}
+
+    install -dm755 ${INSTALLDIR}${_destname}
+    cp -r ${name}/PNM ${INSTALLDIR}${_destname}
+}
